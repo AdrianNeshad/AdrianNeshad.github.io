@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
     const burger = document.getElementById("burger");
     const navLinks = document.querySelector(".nav-links");
-    const langToggle = document.getElementById("lang-toggle");
+    const langBtn = document.getElementById("lang-btn");
 
-    let lang = "sv";
+    let lang = localStorage.getItem("lang") || "sv";
 
     const texts = {
         sv: {
@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
             education: "Utbildning",
             contact: "Kontakta mig",
             resume: "Ladda ner CV",
+            cta: "© 2025 Adrian Neshad"
         },
         en: {
             heroTitle: "Adrian Neshad",
@@ -25,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
             education: "Education",
             contact: "Contact me",
             resume: "Download CV",
+            cta: "© 2025 Adrian Neshad"
         }
     };
 
@@ -38,10 +40,21 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector("section#education h2").textContent = texts[lang].education;
         document.querySelector("footer h3").textContent = texts[lang].contact;
         document.querySelector("footer p").textContent = texts[lang].cta;
+
+        // Uppdatera flagga och text
+        if (lang === "sv") {
+            langBtn.querySelector("img").src = "/assets/images/flag-us.png";
+            langBtn.querySelector("span").textContent = "English";
+        } else {
+            langBtn.querySelector("img").src = "/assets/images/flag-se.png";
+            langBtn.querySelector("span").textContent = "Svenska";
+        }
+
+        localStorage.setItem("lang", lang);
     };
 
-    langToggle.addEventListener("change", () => {
-        lang = langToggle.checked ? "en" : "sv";
+    langBtn.addEventListener("click", () => {
+        lang = lang === "sv" ? "en" : "sv";
         updateLanguage();
     });
 

@@ -91,15 +91,20 @@
     transition: 0.4s;
 }
 
-.toggle-switch input:checked+.slider {
-    background-color: #3b82f6;
-}
-
-.toggle-switch input:checked+.slider:before {
-    transform: translateX(24px);
-}
-
-.lang-toggle-wrapper {
+.lang-button {
     display: flex;
     align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1rem;
+    color: #1f2937;
+    padding: 0.25rem 0.5rem;
+}
+
+.lang-button img {
+    width: 30px;
+    height: auto;
 }
