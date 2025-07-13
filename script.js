@@ -15,7 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
             education: "Utbildning",
             contact: "Kontakta mig",
             resume: "Ladda ner CV",
-            cta: "Låt oss bygga något fantastiskt tillsammans!"
         },
         en: {
             heroTitle: "Adrian Neshad",
@@ -26,7 +25,6 @@ document.addEventListener("DOMContentLoaded", () => {
             education: "Education",
             contact: "Contact me",
             resume: "Download CV",
-            cta: "Let's build something amazing together!"
         }
     };
 
