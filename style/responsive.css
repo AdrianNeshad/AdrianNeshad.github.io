@@ -1,14 +1,32 @@
 @media (max-width: 768px) {
     .nav {
-        flex-direction: column;
-        align-items: stretch;
-        padding: 1rem 2rem;
+            flex-direction: column;
+            align-items: stretch;
+            padding: 1rem 2rem;
+            position: sticky;
+            /* ✅ behåller navbar klistrad i toppen */
+            top: 0;
+            z-index: 1000;
+        }
+        
+    .nav-top {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        width: 100%;
+        height: 48px;
+        /* justera efter behov */
     }
 
     .nav-logo {
         text-align: center;
-        margin: 0 auto;
+        font-size: 1.25rem;
+        margin: 0;
         padding-left: 0;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     .burger {
@@ -19,8 +37,9 @@
         color: #1f2937;
         cursor: pointer;
         position: absolute;
-        top: 1.5rem;
-        right: 2rem;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
         z-index: 1001;
     }
 
