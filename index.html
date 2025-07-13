@@ -1,25 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Erik Andersson - Fullstack Developer</title>
-    <meta name="description" content="Portfolio för Erik Andersson - Fullstack Developer specialiserad på moderna webbapplikationer" />
-    <meta name="author" content="Erik Andersson" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Adrian Neshad</title>
+    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <meta property="og:title" content="Erik Andersson - Fullstack Developer" />
-    <meta property="og:description" content="Portfolio för Erik Andersson - Fullstack Developer specialiserad på moderna webbapplikationer" />
-    <meta property="og:type" content="website" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Erik Andersson - Fullstack Developer" />
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
   </head>
-
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <nav class="nav">
+      <div class="nav-logo">Adrian Neshad</div>
+      <ul class="nav-links">
+        <li><a href="#" data-scroll="projects">Egna Projekt</a></li>
+        <li><a href="#" data-scroll="experience">Arbetserfarenhet</a></li>
+        <li><a href="#" data-scroll="education">Utbildning</a></li>
+      </ul>
+      <button id="lang-toggle" class="lang-button">SV / EN</button>
+    </nav>
+
+    <section id="hero" class="hero">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1>Adrian Neshad</h1>
+          <h2>Fullstack Utvecklare</h2>
+          <p>Jag skapar moderna webbapplikationer med passion för användarupplevelse och ren kod.</p>
+          <div class="hero-buttons">
+            <button data-scroll="projects">Se projekt</button>
+            <button>Kontakta mig</button>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="adrian.png" alt="Adrian Neshad" />
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Egna Projekt</h2>
+      <p>Utforska mina senaste projekt och tekniska lösningar</p>
+      <div class="card-grid">
+        <div class="card">
+          <h3>E-handelslösning</h3>
+          <p>Modern e-handelsplattform byggd med React och Node.js</p>
+          <span class="badge">React</span>
+          <span class="badge">Node.js</span>
+          <span class="badge">MongoDB</span>
+        </div>
+        <div class="card">
+          <h3>Task Manager App</h3>
+          <p>Responsiv app för projekthantering med realtidsuppdateringar</p>
+          <span class="badge">TypeScript</span>
+          <span class="badge">Firebase</span>
+          <span class="badge">Tailwind</span>
+        </div>
+        <div class="card">
+          <h3>Portfolio Dashboard</h3>
+          <p>Interaktiv dashboard för att visa projektstatistik</p>
+          <span class="badge">React</span>
+          <span class="badge">D3.js</span>
+          <span class="badge">Express</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2>Arbetserfarenhet</h2>
+      <p>Min professionella resa inom webbutveckling</p>
+      <div class="card">
+        <h3>Senior Utvecklare – Tech Solutions AB (2022 - Nuvarande)</h3>
+        <p>Ledande utvecklare för moderna webbapplikationer med fokus på användarupplevelse.</p>
+      </div>
+      <div class="card">
+        <h3>Frontend Utvecklare – Digital Agency (2020 - 2022)</h3>
+        <p>Utvecklade responsiva webbsidor och applikationer för olika kunder.</p>
+      </div>
+      <div class="card">
+        <h3>Junior Utvecklare – StartUp Inc (2018 - 2020)</h3>
+        <p>Första professionella rollen där jag lärde mig moderna utvecklingsmetoder.</p>
+      </div>
+    </section>
+
+    <section id="education">
+      <h2>Utbildning</h2>
+      <p>Min akademiska bakgrund och kontinuerliga lärande</p>
+      <div class="card">
+        <h3>Kandidatexamen i Datavetenskap – KTH (2015 - 2018)</h3>
+        <p>Specialisering inom webbutveckling och mjukvarudesign.</p>
+      </div>
+      <div class="card">
+        <h3>Fullstack Bootcamp – Coding Academy (2018)</h3>
+        <p>Intensiv kurs i modern webbutveckling och agila metoder.</p>
+      </div>
+    </section>
+
+    <footer>
+      <h3>Kontakta mig</h3>
+      <p>Låt oss bygga något fantastiskt tillsammans!</p>
+      <button>Kontakta mig</button>
+      <button>Ladda ner CV</button>
+      <p>&copy; 2025 Adrian Neshad. Alla rättigheter förbehållna.</p>
+    </footer>
+
+    <script src="script.js"></script>
   </body>
 </html>
