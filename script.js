@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const target = document.getElementById(link.dataset.scroll);
             if (target) {
                 target.scrollIntoView({ behavior: "smooth" });
-                navLinks.classList.remove("active");
+                navLinks.classList.toggle("active");
             }
         });
     });
