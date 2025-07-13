@@ -1,5 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
+    const burger = document.getElementById("burger");
+    const navLinks = document.querySelector(".nav-links");
     const langToggle = document.getElementById("lang-toggle");
+
+    let lang = "sv";
+
     const texts = {
         sv: {
             heroTitle: "Adrian Neshad",
@@ -25,8 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    let lang = "sv";
-
     const updateLanguage = () => {
         document.documentElement.lang = lang;
         document.querySelector("h1").textContent = texts[lang].heroTitle;
@@ -44,29 +47,21 @@ document.addEventListener("DOMContentLoaded", () => {
         updateLanguage();
     });
 
-    // Smooth scroll
+    burger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+    });
+
+    // Smooth scroll + stäng mobilmeny
     document.querySelectorAll("[data-scroll]").forEach(link => {
         link.addEventListener("click", e => {
             e.preventDefault();
             const target = document.getElementById(link.dataset.scroll);
             if (target) {
                 target.scrollIntoView({ behavior: "smooth" });
-
-                // Stäng mobilmenyn om öppen
-                const wrapper = document.querySelector(".nav-links-wrapper");
-                if (wrapper.classList.contains("open")) {
-                    wrapper.classList.remove("open");
-                }
+                navLinks.classList.remove("active");
             }
         });
     });
 
-    // Burger-meny
-    const burger = document.getElementById("burger");
-    const navWrapper = document.querySelector(".nav-links-wrapper");
-    burger.addEventListener("click", () => {
-        navWrapper.classList.toggle("open");
-    });
-
-    updateLanguage(); // init
+    updateLanguage();
 });
