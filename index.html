@@ -9,15 +9,23 @@
     <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
   </head>
   <body>
+
     <nav class="nav">
       <div class="nav-logo">Adrian Neshad</div>
       <ul class="nav-links">
         <li><a href="#" data-scroll="projects">Egna Projekt</a></li>
         <li><a href="#" data-scroll="experience">Arbetserfarenhet</a></li>
         <li><a href="#" data-scroll="education">Utbildning</a></li>
+        <li class="lang-toggle-wrapper">
+          <label class="toggle-switch">
+            <input type="checkbox" id="lang-toggle" />
+            <span class="slider"></span>
+          </label>
+        </li>
       </ul>
-      <button id="lang-toggle" class="lang-button">SV / EN</button>
+      <button id="burger" class="burger" aria-label="Meny">&#9776;</button>
     </nav>
+
 
     <section id="hero" class="hero">
       <div class="hero-content">
@@ -98,7 +106,7 @@
       <h3>Kontakta mig</h3>
       <p>Låt oss bygga något fantastiskt tillsammans!</p>
       <button>Kontakta mig</button>
-      <button>Ladda ner CV</button>
+      <a href="assets/CV_Adrian_Neshad.pdf" target="_blank" rel="noopener" class="cv-button">Ladda ner CV</a>
       <p>&copy; 2025 Adrian Neshad. Alla rättigheter förbehållna.</p>
     </footer>
 
