@@ -25,6 +25,10 @@ section {
     box-sizing: border-box;
 }
 
+h1 {
+    font-size: 2.5rem;
+}
+
 h1,
 h2,
 h3 {
