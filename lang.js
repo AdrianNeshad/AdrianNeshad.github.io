@@ -47,9 +47,10 @@ export const texts = {
         protokoll: "Protokoll:",
         arkitekturer: "Arkitekturer:",
         utmärkelser: "Utmärkelser:",
+        location: "Stockholm & Örebro, Sverige",
     },
     en: {
-        heroSubtitle: "Fullstack Developer",
+        heroSubtitle: "Student and Developer",
         heroDesc: "I create modern web applications with a passion for user experience and clean code.",
         seeProjects: "View Projects",
         contactMe: "Contact Me",
@@ -91,8 +92,9 @@ export const texts = {
         edu3Desc: "Economics programme with a focus on law.",
         contact: "Contact Me",
         resume: "Curriculum Vitae",
-        protokoll: "Protocol",
+        protokoll: "Protocol:",
         arkitekturer: "Architectures:",
         utmärkelser: "Awards:",
+        localation: "Stockholm & Örebro, Sweden",
     }
 };

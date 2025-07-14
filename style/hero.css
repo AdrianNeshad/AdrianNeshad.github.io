@@ -159,3 +159,19 @@
         transform: translateY(8px);
     }
 }
+.location {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    font-size: 1rem;
+    color: #374151;
+    margin: 0.2rem 0 1rem;
+}
+
+.pin-icon {
+    width: 20px;
+    height: 20px;
+    filter: grayscale(30%);
+    opacity: 0.8;
+}
