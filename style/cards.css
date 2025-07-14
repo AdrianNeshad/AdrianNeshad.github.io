@@ -28,6 +28,17 @@
     margin-top: 0.5rem;
 }
 
+.badge2 {
+    display: inline-block;
+    background: linear-gradient(to right, #f7e35b, #d4af37);
+    color: #1a1a1a;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 999px;
+    margin-right: 0rem;
+    margin-top: 0.5rem;
+}
+
 .card-header {
     display: flex;
     align-items: center;
