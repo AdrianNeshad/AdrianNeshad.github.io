@@ -6,11 +6,10 @@
     align-items: center;
     justify-content: space-between;
     gap: 2rem;
-    padding: 4rem 1rem;
+    padding: 1rem 1rem;
     max-width: 1200px;
     margin: 0 auto;
     box-sizing: border-box;
-    padding-top: 8rem;
 }
 
 .hero-text {
@@ -20,6 +19,7 @@
 .hero-image {
     flex: 1 1 300px;
     text-align: center;
+    padding-top: 8rem;
 }
 
 .hero-image img {
@@ -52,9 +52,39 @@
 }
 
 .icon-button {
-    width: 70px;
     height: 70px;
     object-fit: contain;
 }
+.hero-arrow {
+    width: 100%;
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
 
+.hero-arrow img {
+    width: 40px;
+    height: 40px;
+    opacity: 0.7;
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    animation: bounce 2s infinite;
+}
+
+.hero-arrow img:hover {
+    transform: translateY(4px);
+    opacity: 1;
+}
+
+/* Enkel upp-och-ned-animation */
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(8px);
+    }
 }
