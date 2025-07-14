@@ -210,7 +210,13 @@
         .badge2 {
             max-width: 400px;
         }
-         .footer-contact-container {
-             flex-direction: row;
-         }
+                .footer-contact-container {
+                    flex-direction: column !important;
+                    align-items: center;
+                }
+        
+                .footer-box {
+                    width: 100%;
+                    max-width: 300px;
+                }
 }
