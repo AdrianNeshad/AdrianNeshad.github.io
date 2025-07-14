@@ -10,10 +10,10 @@
         z-index: 1000;
         background: #ffffff11;
         backdrop-filter: blur(5px);
-        border-bottom: 1px solid rgba(229, 231, 235, 0.5); /* Lägg till border */
+        border-bottom: 1px solid rgba(229, 231, 235, 0.5);
         transition: transform 0.3s ease;
     }
-        
+
     .nav-top {
         display: flex;
         align-items: center;
@@ -48,152 +48,153 @@
         z-index: 1001;
     }
 
-        .nav-links {
-            flex-direction: column;
-            align-items: stretch;
-            /* stretch = full bredd */
-            width: 100%;
-            overflow: hidden;
-            max-height: 0;
-            transition: max-height 1s ease-out;
-            gap: 0.5rem;
-            padding: 0 1rem;
-            text-align: left;
-        }
-    
-        .nav-links.active {
-            max-height: 600px;
-            padding: 1rem 1.5rem;
-        }
-    
-        /* Gör länkarna till textlänkar, inte knappar */
-        .nav-links a {
-            all: unset;
-            /* Rensa alla knappstilar */
-            display: block;
-            font-size: 1.1rem;
+    .nav-links {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 1s ease-out;
+        gap: 0.5rem;
+        padding: 0 1rem;
+        text-align: left;
+    }
+
+    .nav-links.active {
+        max-height: 600px;
+        padding: 1rem 1.5rem;
+    }
+
+    .nav-links a {
+        all: unset;
+        display: block;
+        font-size: 1.1rem;
+        color: #1f2937;
+        font-weight: 500;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid #e5e7eb;
+        cursor: pointer;
+        transition: color 0.3s ease;
+    }
+
+    @media (max-width: 768px) {
+
+        .nav-links a:hover,
+        .nav-links a.active-section {
+            background-color: transparent;
             color: #1f2937;
-            font-weight: 500;
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #e5e7eb;
-            cursor: pointer;
-            transition: color 0.3s ease;
+            border: none;
+            outline: none;
+            text-decoration: none;
         }
-    
-           @media (max-width: 768px) {
-    
-               .nav-links a:hover,
-               .nav-links a.active-section {
-                   background-color: transparent;
-                   color: #1f2937;
-                   border: none;
-                   outline: none;
-                   text-decoration: none;
-               }
-           }
+    }
 
     .lang-toggle-wrapper {
         justify-content: center;
         margin-top: 0.5rem;
     }
-    
-         section#hero.hero {
-             padding-top: 0rem !important;
-             min-height: 100vh !important;
-             display: flex !important;
-             flex-direction: column !important;
-             justify-content: center !important;
-             align-items: center !important;
-             text-align: center !important;
-             padding: 1rem !important;
-             flex-wrap: nowrap !important;
-         }
-    
-         section#hero.hero .hero-content {
-             display: flex !important;
-             flex-direction: column !important;
-             align-items: center !important;
-             justify-content: center !important;
-             text-align: center !important;
-             width: 100% !important;
-             padding: 0 1rem !important;
-             gap: 2rem !important;
-             flex-wrap: nowrap !important;
-         }
-    
-         .hero-image {
-             order: 1;
-             margin: 0;
-             padding: 0;
-             text-align: center;
-             margin-top: 7rem;
-             /* Reset desktop values */
-             margin-right: 0 !important;
-             padding-top: 0 !important;
-         }
-    
-         .hero-text {
-             order: 2;
-             text-align: center;
-             align-items: center;
-             justify-content: center;
-             display: flex;
-             flex-direction: column;
-             /* Reset desktop values */
-             margin-left: 0 !important;
-             margin-top: 0rem;
-             flex: none;
-         }
-    
-         .techstack-card {
-             order: 3;
-             position: static;
-             width: 100%;
-             max-width: 320px;
-             text-align: center;
-             /* Reset desktop positioning */
-             top: 0 !important;
-             left: 0 !important;
-             margin: 0 auto;
-         }
-    
-         .hero-buttons {
-             display: flex;
-             flex-direction: row;
-             justify-content: center;
-             align-items: center;
-             gap: 1rem;
-             margin-top: 1rem;
-         }
-    
-         .hero-buttons img {
-             height: 40px;
-             object-fit: contain;
-             transition: transform 0.2s ease;
-         }
-    
-         .hero-buttons img:hover {
-             transform: scale(1.1);
-         }
+
+    section#hero.hero {
+        padding-top: 0rem !important;
+        min-height: 100vh !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        text-align: center !important;
+        padding: 1rem !important;
+        flex-wrap: nowrap !important;
+    }
+
+    section#hero.hero .hero-content {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        width: 100% !important;
+        padding: 0 1rem !important;
+        gap: 2rem !important;
+        flex-wrap: nowrap !important;
+    }
+
+    .hero-image {
+        order: 1;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        margin-top: 7rem;
+        margin-right: 0 !important;
+        padding-top: 0 !important;
+    }
+
+    .hero-text {
+        order: 2;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        margin-left: 0 !important;
+        margin-top: 0rem;
+        flex: none;
+    }
+
+    .techstack-card {
+        order: 3;
+        position: static !important;
+        width: 100% !important;
+        max-width: 320px !important;
+        text-align: center !important;
+        /* Completely reset all positioning */
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        margin: 0 auto !important;
+        /* Ensure perfect centering */
+        display: block !important;
+        box-sizing: border-box !important;
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
+    }
+
+    .hero-buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    .hero-buttons img {
+        height: 40px;
+        object-fit: contain;
+        transition: transform 0.2s ease;
+    }
+
+    .hero-buttons img:hover {
+        transform: scale(1.1);
+    }
 
     /* Justera andra sektioner för mobil */
     section {
         padding: 2rem 1rem;
         min-height: 100vh;
     }
-    
+
     /* Justera footer för mobil */
     footer {
         padding: 2rem 1rem;
         min-height: 100vh;
     }
-    
+
     /* Justera kort för mobil */
     .card-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
     }
-    
+
     .card {
         padding: 1rem;
     }
