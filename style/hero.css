@@ -18,14 +18,15 @@
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: center;
-    gap: 2rem;
+    gap: 1rem;
 }
 
 .hero-image {
     order: 1;
     flex: 0 0 auto;
     text-align: center;
-    padding-top: 1rem;
+    padding-top: 8rem;
+    margin-right: 10rem;
 }
 
 .hero-image img {
@@ -43,8 +44,8 @@
 .techstack-card {
     order: 2;
     position: relative;
-    top: 2rem;
-    left: 0;
+    top: 8rem;
+    left: 0rem;
     width: 300px;
     background: #ffffffee;
     border-radius: 16px;
@@ -100,6 +101,8 @@
 .hero-text {
     order: 3;
     flex: 1 1 300px;
+    margin-top: -3rem;
+    margin-left: 10rem;
 }
 
 .hero-buttons {
