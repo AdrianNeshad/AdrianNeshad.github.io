@@ -23,10 +23,10 @@
         <button id="burger" class="burger" aria-label="Meny">&#9776;</button>
       </div>
       <ul class="nav-links">
-        <li><a href="#" data-scroll="projects">Egna Projekt</a></li>
-        <li><a href="#" data-scroll="experience">Arbetserfarenhet</a></li>
-        <li><a href="#" data-scroll="education">Utbildning</a></li>
-        <li><a href="#" data-scroll="footer">Kontakta mig</a></li>
+        <li><a href="#" data-scroll="projects" data-i18n="projects">Egna Projekt</a></li>
+        <li><a href="#" data-scroll="experience" data-i18n="experience">Arbetserfarenhet</a></li>
+        <li><a href="#" data-scroll="education" data-i18n="education">Utbildning</a></li>
+        <li><a href="#" data-scroll="footer" data-i18n="contact">Kontakta mig</a></li>
         <li class="lang-toggle-wrapper">
           <button id="lang-btn" class="lang-button">
             <img src="/assets/icons/flag-us.png" alt="Flag" />
@@ -43,37 +43,37 @@
         </div>
         <div class="hero-text">
           <h1>Adrian Neshad</h1>
-          <h2>Fullstack Utvecklare</h2>
-          <p>Jag skapar moderna webbapplikationer med passion för användarupplevelse och ren kod.</p>
+          <h2 data-i18n="heroSubtitle">Fullstack Utvecklare</h2>
+          <p data-i18n="heroDesc">Jag skapar moderna webbapplikationer med passion för användarupplevelse och ren kod.</p>
           <div class="hero-buttons">
-            <button data-scroll="projects">Se projekt</button>
-            <button>Kontakta mig</button>
+            <button data-scroll="projects" data-i18n="seeProjects">Se projekt</button>
+            <button data-i18n="contactMe">Kontakta mig</button>
           </div>
         </div>
       </div>
     </section>
 
     <section id="projects">
-      <h2>Egna Projekt</h2>
-      <p>Utforska mina senaste projekt och tekniska lösningar</p>
+      <h2 data-i18n="projects">Egna Projekt</h2>
+      <p data-i18n="projectsDesc">Utforska mina senaste projekt och tekniska lösningar</p>
       <div class="card-grid">
         <div class="card">
-          <h3>E-handelslösning</h3>
-          <p>Modern e-handelsplattform byggd med React och Node.js</p>
+          <h3 data-i18n="project1Title">E-handelslösning</h3>
+          <p data-i18n="project1Desc">Modern e-handelsplattform byggd med React och Node.js</p>
           <span class="badge">React</span>
           <span class="badge">Node.js</span>
           <span class="badge">MongoDB</span>
         </div>
         <div class="card">
-          <h3>Task Manager App</h3>
-          <p>Responsiv app för projekthantering med realtidsuppdateringar</p>
+          <h3 data-i18n="project2Title">Task Manager App</h3>
+          <p data-i18n="project2Desc">Responsiv app för projekthantering med realtidsuppdateringar</p>
           <span class="badge">TypeScript</span>
           <span class="badge">Firebase</span>
           <span class="badge">Tailwind</span>
         </div>
         <div class="card">
-          <h3>Portfolio Dashboard</h3>
-          <p>Interaktiv dashboard för att visa projektstatistik</p>
+          <h3 data-i18n="project3Title">Portfolio Dashboard</h3>
+          <p data-i18n="project3Desc">Interaktiv dashboard för att visa projektstatistik</p>
           <span class="badge">React</span>
           <span class="badge">D3.js</span>
           <span class="badge">Express</span>
@@ -82,42 +82,42 @@
     </section>
 
     <section id="experience">
-      <h2>Arbetserfarenhet</h2>
-      <p>Min professionella resa inom webbutveckling</p>
+      <h2 data-i18n="experience">Arbetserfarenhet</h2>
+      <p data-i18n="experienceDesc">Min professionella resa inom webbutveckling</p>
       <div class="card">
-        <h3>Senior Utvecklare – Tech Solutions AB (2022 - Nuvarande)</h3>
-        <p>Ledande utvecklare för moderna webbapplikationer med fokus på användarupplevelse.</p>
+        <h3 data-i18n="exp1Title">Senior Utvecklare – Tech Solutions AB (2022 - Nuvarande)</h3>
+        <p data-i18n="exp1Desc">Ledande utvecklare för moderna webbapplikationer med fokus på användarupplevelse.</p>
       </div>
       <div class="card">
-        <h3>Frontend Utvecklare – Digital Agency (2020 - 2022)</h3>
-        <p>Utvecklade responsiva webbsidor och applikationer för olika kunder.</p>
+        <h3 data-i18n="exp2Title">Frontend Utvecklare – Digital Agency (2020 - 2022)</h3>
+        <p data-i18n="exp2Desc">Utvecklade responsiva webbsidor och applikationer för olika kunder.</p>
       </div>
       <div class="card">
-        <h3>Junior Utvecklare – StartUp Inc (2018 - 2020)</h3>
-        <p>Första professionella rollen där jag lärde mig moderna utvecklingsmetoder.</p>
+        <h3 data-i18n="exp3Title">Junior Utvecklare – StartUp Inc (2018 - 2020)</h3>
+        <p data-i18n="exp3Desc">Första professionella rollen där jag lärde mig moderna utvecklingsmetoder.</p>
       </div>
     </section>
 
     <section id="education">
-      <h2>Utbildning</h2>
-      <p>Min akademiska bakgrund och kontinuerliga lärande</p>
+      <h2 data-i18n="education">Utbildning</h2>
+      <p data-i18n="educationDesc">Min akademiska bakgrund och kontinuerliga lärande</p>
       <div class="card">
-        <h3>Kandidatexamen i Datavetenskap – KTH (2015 - 2018)</h3>
-        <p>Specialisering inom webbutveckling och mjukvarudesign.</p>
+        <h3 data-i18n="edu1Title">Kandidatexamen i Datavetenskap – KTH (2015 - 2018)</h3>
+        <p data-i18n="edu1Desc">Specialisering inom webbutveckling och mjukvarudesign.</p>
       </div>
       <div class="card">
-        <h3>Fullstack Bootcamp – Coding Academy (2018)</h3>
-        <p>Intensiv kurs i modern webbutveckling och agila metoder.</p>
+        <h3 data-i18n="edu2Title">Fullstack Bootcamp – Coding Academy (2018)</h3>
+        <p data-i18n="edu2Desc">Intensiv kurs i modern webbutveckling och agila metoder.</p>
       </div>
     </section>
 
     <footer id="footer">
-      <h3>Kontakta mig</h3>
-      <button>Kontakta mig</button>
-      <a href="assets/CV_Adrian_Neshad.pdf" target="_blank" rel="noopener" class="cv-button">CV</a>
+      <h3 data-i18n="contact">Kontakta mig</h3>
+      <button data-i18n="contactMe">Kontakta mig</button>
+      <a href="assets/CV_Adrian_Neshad.pdf" target="_blank" rel="noopener" class="cv-button" data-i18n="downloadCV">CV</a>
       <p>&copy; 2025 Adrian Neshad</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
   </body>
 </html>
