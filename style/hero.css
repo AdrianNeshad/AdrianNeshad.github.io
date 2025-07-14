@@ -88,3 +88,55 @@
         transform: translateY(8px);
     }
 }
+.techstack-card {
+    flex: 1 1 280px;
+    background: #ffffffee;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid #e0e0e0;
+    margin-top: 10rem;
+    transition: transform 0.3s ease;
+    margin-left: 5rem;
+}
+
+.techstack-card:hover {
+    transform: translateY(-4px);
+}
+
+.techstack-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.stack-icons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.stack-icons img {
+    height: 36px;
+    object-fit: contain;
+    filter: grayscale(20%);
+    transition: transform 0.2s ease;
+}
+
+.stack-icons img:hover {
+    transform: scale(1.15);
+    filter: none;
+}
+.hero-side {
+    display: flex;
+    flex: 1 1 600px;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 0rem;
+}
