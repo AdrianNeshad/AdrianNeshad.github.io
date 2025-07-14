@@ -120,58 +120,6 @@ document.addEventListener("DOMContentLoaded", () => {
         return 0;
     };
 
-    // document.addEventListener('wheel', (e) => {
-    //     if (isScrolling) {
-    //         e.preventDefault();
-    //         return;
-    //     }
-
-    //     e.preventDefault();
-    //     currentSectionIndex = getCurrentSectionIndex();
-
-    //     if (e.deltaY > 0 && currentSectionIndex < sections.length - 1) {
-    //         navigateToSection(currentSectionIndex + 1);
-    //     } else if (e.deltaY < 0 && currentSectionIndex > 0) {
-    //         navigateToSection(currentSectionIndex - 1);
-    //     }
-    // }, { passive: false });
-
-    // let touchStartY = 0;
-    // document.addEventListener('touchstart', (e) => {
-    //     touchStartY = e.changedTouches[0].screenY;
-    // }, { passive: true });
-
-    // document.addEventListener('touchend', (e) => {
-    //     if (isScrolling) return;
-    //     const touchEndY = e.changedTouches[0].screenY;
-    //     const deltaY = touchStartY - touchEndY;
-    //     const minSwipeDistance = 50;
-
-    //     currentSectionIndex = getCurrentSectionIndex();
-
-    //     if (Math.abs(deltaY) > minSwipeDistance) {
-    //         if (deltaY > 0 && currentSectionIndex < sections.length - 1) {
-    //             navigateToSection(currentSectionIndex + 1);
-    //         } else if (deltaY < 0 && currentSectionIndex > 0) {
-    //             navigateToSection(currentSectionIndex - 1);
-    //         }
-    //     }
-    // }, { passive: true });
-
-    // document.addEventListener('keydown', (e) => {
-    //     if (isScrolling) return;
-
-    //     currentSectionIndex = getCurrentSectionIndex();
-
-    //     if (e.key === 'ArrowDown' && currentSectionIndex < sections.length - 1) {
-    //         e.preventDefault();
-    //         navigateToSection(currentSectionIndex + 1);
-    //     } else if (e.key === 'ArrowUp' && currentSectionIndex > 0) {
-    //         e.preventDefault();
-    //         navigateToSection(currentSectionIndex - 1);
-    //     }
-    // });
-
     setTimeout(() => {
         const initialIndex = getCurrentSectionIndex();
         navigateToSection(initialIndex);
@@ -195,6 +143,21 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         lastScrollY = currentScrollY;
+        if (!isScrolling) {
+            const currentIndex = getCurrentSectionIndex();
+            if (currentIndex !== currentSectionIndex) {
+                currentSectionIndex = currentIndex;
+
+                document.querySelectorAll(".nav-links a").forEach(link => {
+                    const scrollTarget = link.getAttribute("data-scroll");
+                    if (scrollTarget === sections[currentIndex]) {
+                        link.classList.add("active-section");
+                    } else {
+                        link.classList.remove("active-section");
+                    }
+                });
+            }
+        }
     };
 
     window.addEventListener('scroll', handleScroll);
