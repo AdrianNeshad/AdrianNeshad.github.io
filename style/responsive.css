@@ -139,25 +139,22 @@
     
         .hero-buttons {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            /* 🔸 Centrera horisontellt */
+            flex-direction: row;
             justify-content: center;
-            /* 🔸 Centrera vertikalt om nödvändigt */
-            gap: 1rem;
-            width: 100%;
-            max-width: 300px;
-            margin: 0 auto;
-            /* 🔸 Centrera container om nödvändigt */
+            align-items: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
         }
     
-        .hero-buttons button {
-            width: 100%;
-            /* 🔸 Gör knapparna lika breda */
-            margin: 0;
-            /* 🔸 Ta bort ev. sidomarginal */
-            text-align: center;
-            /* 🔸 Centrera text om behövs */
+        .hero-buttons img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            transition: transform 0.2s ease;
+        }
+    
+        .hero-buttons img:hover {
+            transform: scale(1.1);
         }
     
     /* Justera andra sektioner för mobil */

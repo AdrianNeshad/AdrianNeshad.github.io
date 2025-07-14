@@ -34,18 +34,27 @@
     transform: scale(1.05);
 }
 
-.hero-buttons button {
-    margin-right: 1rem;
-    padding: 0.6rem 1.2rem;
-    font-weight: 500;
-    background: #3b82f6;
-    border: none;
-    color: white;
-    border-radius: 6px;
-    cursor: pointer;
+.hero-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.hero-buttons a {
+    display: inline-block;
     transition: transform 0.2s ease;
 }
 
-.hero-buttons button:hover {
+.hero-buttons a:hover {
     transform: scale(1.05);
+}
+
+.icon-button {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+}
+
 }
