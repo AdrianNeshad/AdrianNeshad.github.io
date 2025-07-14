@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const navLinks = document.querySelector(".nav-links");
     const langBtn = document.getElementById("lang-btn");
 
-    let lang = localStorage.getItem("lang") || "sv";
+    let lang = "sv";
 
     const updateLanguage = () => {
         document.documentElement.lang = lang;
@@ -27,13 +27,35 @@ document.addEventListener("DOMContentLoaded", () => {
             : "Svenska";
 
         localStorage.setItem("lang", lang);
-        document.documentElement.style.visibility = 'visible'; // Visa efter språket är satt
+        document.documentElement.style.visibility = 'visible';
     };
 
     langBtn.addEventListener("click", () => {
         lang = lang === "sv" ? "en" : "sv";
         updateLanguage();
     });
+
+    const detectAndSetLanguage = async () => {
+        const storedLang = localStorage.getItem("lang");
+        if (storedLang) {
+            lang = storedLang;
+            updateLanguage();
+            return;
+        }
+
+        try {
+            const res = await fetch('https://ipapi.co/json/');
+            const data = await res.json();
+            const country = data.country || '';
+
+            lang = country === 'SE' ? 'sv' : 'en';
+        } catch (e) {
+            const browserLang = navigator.language || navigator.userLanguage;
+            lang = browserLang.startsWith('sv') ? 'sv' : 'en';
+        }
+
+        updateLanguage();
+    };
 
     burger.addEventListener("click", () => {
         navLinks.classList.toggle("active");
@@ -155,7 +177,7 @@ document.addEventListener("DOMContentLoaded", () => {
         navigateToSection(initialIndex);
     }, 100);
 
-    updateLanguage();
+    detectAndSetLanguage();
 
     let lastScrollY = window.scrollY;
     const nav = document.querySelector('.nav');
