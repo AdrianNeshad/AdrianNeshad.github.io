@@ -12,14 +12,14 @@ footer {
 }
 
 footer button {
-    margin: 0.5rem;
-    padding: 0.6rem 1.2rem;
-    border: 1px solid #3b82f6;
-    background: white;
-    color: #3b82f6;
-    border-radius: 6px;
+    text-decoration: none;
+    color: #1f2937;
     font-weight: 500;
-    cursor: pointer;
+    border: 2px solid #1f2937;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+    background-color: transparent;
 }
 
 footer button:hover {
@@ -28,17 +28,14 @@ footer button:hover {
 }
 
 .cv-button {
-    display: inline-block;
-    margin: 0.5rem;
-    padding: 0.6rem 1.2rem;
-    border: 1px solid #3b82f6;
-    background: white;
-    color: #3b82f6;
-    border-radius: 6px;
-    font-weight: 500;
     text-decoration: none;
-    cursor: pointer;
-    transition: background 0.2s ease, color 0.2s ease;
+    color: #1f2937;
+    font-weight: 500;
+    border: 2px solid #1f2937;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+    background-color: transparent;
 }
 
 .cv-button:hover {

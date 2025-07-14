@@ -41,7 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector("footer h3").textContent = texts[lang].contact;
         document.querySelector("footer p").textContent = texts[lang].cta;
 
-        // Uppdatera flagga och text
         if (lang === "sv") {
             langBtn.querySelector("img").src = "/assets/images/flag-us.png";
             langBtn.querySelector("span").textContent = "English";
@@ -62,65 +61,17 @@ document.addEventListener("DOMContentLoaded", () => {
         navLinks.classList.toggle("active");
     });
 
-    // Förbättrad smooth scroll med scroll snap
-    document.querySelectorAll("[data-scroll]").forEach(link => {
-        link.addEventListener("click", e => {
-            e.preventDefault();
-            const target = document.getElementById(link.dataset.scroll);
-            if (target) {
-                // Temporärt inaktivera scroll-snap för smooth scrolling
-                document.documentElement.style.scrollSnapType = 'none';
-
-                target.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
-                });
-
-                // Återaktivera scroll-snap efter scrolling
-                setTimeout(() => {
-                    document.documentElement.style.scrollSnapType = 'y mandatory';
-                }, 1000);
-
-                // Stäng mobilmeny
-                navLinks.classList.remove("active");
-            }
-        });
-    });
-
-    // Sektions-navigering med wheel event
     const sections = ['hero', 'projects', 'experience', 'education', 'footer'];
     let currentSectionIndex = 0;
     let isScrolling = false;
-    let scrollTimeout;
 
-    // Funktion för att hitta nuvarande sektion
-    const getCurrentSectionIndex = () => {
-        const scrollY = window.scrollY + window.innerHeight / 2;
-
-        for (let i = 0; i < sections.length; i++) {
-            const section = document.getElementById(sections[i]);
-            if (section) {
-                const rect = section.getBoundingClientRect();
-                const sectionTop = rect.top + window.scrollY;
-                const sectionBottom = sectionTop + rect.height;
-
-                if (scrollY >= sectionTop && scrollY < sectionBottom) {
-                    return i;
-                }
-            }
-        }
-        return 0;
-    };
-
-    // Funktion för att navigera till sektion
+    // Navigera till sektion med scroll + markering
     const navigateToSection = (index) => {
         if (index >= 0 && index < sections.length && index !== currentSectionIndex) {
             currentSectionIndex = index;
             isScrolling = true;
 
-            // Inaktivera scroll-snap temporärt
             document.documentElement.style.scrollSnapType = 'none';
-
             const target = document.getElementById(sections[index]);
             if (target) {
                 target.scrollIntoView({
@@ -129,7 +80,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
             }
 
-            // Återaktivera scroll-snap och tillåt ny scroll efter animation
+            // MARKERA AKTIV LÄNK (men inte hero)
+            document.querySelectorAll(".nav-links a").forEach(link => {
+                const scrollTarget = link.getAttribute("data-scroll");
+                if (index === 0 || scrollTarget === "hero") {
+                    link.classList.remove("active-section");
+                } else if (scrollTarget === sections[index]) {
+                    link.classList.add("active-section");
+                } else {
+                    link.classList.remove("active-section");
+                }
+            });
+
             setTimeout(() => {
                 document.documentElement.style.scrollSnapType = 'y mandatory';
                 isScrolling = false;
@@ -137,7 +99,35 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    // Wheel event för kontrollerad scrolling
+    // Klick på nav-länkar
+    document.querySelectorAll("[data-scroll]").forEach(link => {
+        link.addEventListener("click", e => {
+            e.preventDefault();
+            const targetId = link.dataset.scroll;
+            const targetIndex = sections.indexOf(targetId);
+            if (targetIndex !== -1) {
+                navigateToSection(targetIndex);
+            }
+            navLinks.classList.remove("active");
+        });
+    });
+
+    // Scroll-funktion
+    const getCurrentSectionIndex = () => {
+        const scrollY = window.scrollY + window.innerHeight / 2;
+        for (let i = 0; i < sections.length; i++) {
+            const section = document.getElementById(sections[i]);
+            if (section) {
+                const rect = section.getBoundingClientRect();
+                const top = rect.top + window.scrollY;
+                const bottom = top + rect.height;
+                if (scrollY >= top && scrollY < bottom) return i;
+            }
+        }
+        return 0;
+    };
+
+    // Wheel
     document.addEventListener('wheel', (e) => {
         if (isScrolling) {
             e.preventDefault();
@@ -145,57 +135,39 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         e.preventDefault();
-
-        // Uppdatera nuvarande sektion
         currentSectionIndex = getCurrentSectionIndex();
 
-        // Bestäm scroll-riktning
-        if (e.deltaY > 0) {
-            // Scrolla ner
-            if (currentSectionIndex < sections.length - 1) {
-                navigateToSection(currentSectionIndex + 1);
-            }
-        } else {
-            // Scrolla upp
-            if (currentSectionIndex > 0) {
-                navigateToSection(currentSectionIndex - 1);
-            }
+        if (e.deltaY > 0 && currentSectionIndex < sections.length - 1) {
+            navigateToSection(currentSectionIndex + 1);
+        } else if (e.deltaY < 0 && currentSectionIndex > 0) {
+            navigateToSection(currentSectionIndex - 1);
         }
     }, { passive: false });
 
-    // Touch events för mobil
+    // Touch
     let touchStartY = 0;
-    let touchEndY = 0;
-    const minSwipeDistance = 50;
-
     document.addEventListener('touchstart', (e) => {
         touchStartY = e.changedTouches[0].screenY;
     }, { passive: true });
 
     document.addEventListener('touchend', (e) => {
         if (isScrolling) return;
-
-        touchEndY = e.changedTouches[0].screenY;
+        const touchEndY = e.changedTouches[0].screenY;
         const deltaY = touchStartY - touchEndY;
+        const minSwipeDistance = 50;
+
+        currentSectionIndex = getCurrentSectionIndex();
 
         if (Math.abs(deltaY) > minSwipeDistance) {
-            currentSectionIndex = getCurrentSectionIndex();
-
-            if (deltaY > 0) {
-                // Swipe upp (scrolla ner)
-                if (currentSectionIndex < sections.length - 1) {
-                    navigateToSection(currentSectionIndex + 1);
-                }
-            } else {
-                // Swipe ner (scrolla upp)
-                if (currentSectionIndex > 0) {
-                    navigateToSection(currentSectionIndex - 1);
-                }
+            if (deltaY > 0 && currentSectionIndex < sections.length - 1) {
+                navigateToSection(currentSectionIndex + 1);
+            } else if (deltaY < 0 && currentSectionIndex > 0) {
+                navigateToSection(currentSectionIndex - 1);
             }
         }
     }, { passive: true });
 
-    // Tangentbordsnavigering
+    // Keyboard
     document.addEventListener('keydown', (e) => {
         if (isScrolling) return;
 
@@ -210,30 +182,27 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Uppdatera nuvarande sektion vid första laddning
+    // Init: sätt rätt sektion aktiv
     setTimeout(() => {
-        currentSectionIndex = getCurrentSectionIndex();
+        const initialIndex = getCurrentSectionIndex();
+        navigateToSection(initialIndex);
     }, 100);
 
     updateLanguage();
-    
-    // Navbar hide/show on scroll (only on mobile)
+
+    // Navbar hide/show on scroll (mobile)
     let lastScrollY = window.scrollY;
     const nav = document.querySelector('.nav');
-
     const handleScroll = () => {
         const currentScrollY = window.scrollY;
 
-        if (window.innerWidth <= 768) { // Gäller endast mobil
+        if (window.innerWidth <= 768) {
             if (currentScrollY > lastScrollY && currentScrollY > 50) {
-                // Scrollar ner
                 nav.style.transform = 'translateY(-100%)';
             } else {
-                // Scrollar upp
                 nav.style.transform = 'translateY(0)';
             }
         } else {
-            // Återställ på desktop
             nav.style.transform = 'translateY(0)';
         }
 
@@ -241,5 +210,4 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-
 });

@@ -48,21 +48,49 @@
         z-index: 1001;
     }
 
-    .nav-links {
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        overflow: hidden;
-        max-height: 0;
-        transition: max-height 1s ease-out;
-        gap: 1rem;
-        padding: 0 1rem; /* Fixa padding syntax */
-    }
-
-    .nav-links.active {
-        max-height: 500px;
-        padding: 1rem; /* Lägg till padding när aktiv */
-    }
+        .nav-links {
+            flex-direction: column;
+            align-items: stretch;
+            /* stretch = full bredd */
+            width: 100%;
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 1s ease-out;
+            gap: 0.5rem;
+            padding: 0 1rem;
+            text-align: left;
+        }
+    
+        .nav-links.active {
+            max-height: 600px;
+            padding: 1rem 1.5rem;
+        }
+    
+        /* Gör länkarna till textlänkar, inte knappar */
+        .nav-links a {
+            all: unset;
+            /* Rensa alla knappstilar */
+            display: block;
+            font-size: 1.1rem;
+            color: #1f2937;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e5e7eb;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+    
+           @media (max-width: 768px) {
+    
+               .nav-links a:hover,
+               .nav-links a.active-section {
+                   background-color: transparent;
+                   color: #1f2937;
+                   border: none;
+                   outline: none;
+                   text-decoration: none;
+               }
+           }
 
     .lang-toggle-wrapper {
         justify-content: center;
