@@ -45,3 +45,28 @@ footer button:hover {
     background: #3b82f6;
     color: white;
 }
+.footer-contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.footer-box {
+    text-decoration: none;
+    color: #1f2937;
+    font-weight: 500;
+    border: 2px solid #1f2937;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+    background-color: transparent;
+    width: 250px;
+    text-align: center;
+}
+
+.footer-box:hover {
+    background: #3b82f6;
+    color: white;
+}
