@@ -35,6 +35,11 @@ p {
     margin-bottom: 1em;
 }
 
+p2 {
+    margin-bottom: 1em;
+    font-size: small;
+}
+
 section {
     padding: 4rem 1rem;
     max-width: 1200px;
