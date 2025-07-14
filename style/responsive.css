@@ -203,4 +203,11 @@
     .card {
         padding: 1rem;
     }
+        .badge2-container {
+            grid-template-columns: 1fr;
+            grid-template-rows: auto;
+        }
+        .badge2 {
+            max-width: 400px;
+        }
 }
