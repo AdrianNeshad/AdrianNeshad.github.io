@@ -1,9 +1,28 @@
+html {
+    scroll-snap-type: y proximity;
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     font-family: 'Inter', sans-serif;
     background: linear-gradient(to bottom right, #f8fafc, #e2e8f0);
     color: #1f2937;
     line-height: 1.6;
+    /* Ta bort eventuell overflow för bättre scroll snap */
+    overflow-x: hidden;
+}
+
+section {
+    scroll-snap-align: start;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box;
 }
 
 h1,

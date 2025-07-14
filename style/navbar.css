@@ -1,24 +1,33 @@
 .nav {
+    position: fixed;
+    /* Ändra från sticky till fixed */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background: #ffffff11;
     backdrop-filter: blur(5px);
     padding: 1.5rem 2rem;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    border-bottom: 0px;
     flex-wrap: wrap;
 }
 
-.nav-logo {
+.nav-logo a {
+    text-decoration: none;
+    color: inherit;
     font-weight: bold;
     font-size: 1.25rem;
+    transition: color 0.3s ease;
     margin: 0;
     text-align: left;
     flex: 1;
-    padding-left: 8rem;
+    padding-left: 9rem;
+}
+
+.nav-logo a:hover {
+    color: #2563eb;
 }
 
 .nav-links {
