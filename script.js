@@ -120,57 +120,57 @@ document.addEventListener("DOMContentLoaded", () => {
         return 0;
     };
 
-    document.addEventListener('wheel', (e) => {
-        if (isScrolling) {
-            e.preventDefault();
-            return;
-        }
+    // document.addEventListener('wheel', (e) => {
+    //     if (isScrolling) {
+    //         e.preventDefault();
+    //         return;
+    //     }
 
-        e.preventDefault();
-        currentSectionIndex = getCurrentSectionIndex();
+    //     e.preventDefault();
+    //     currentSectionIndex = getCurrentSectionIndex();
 
-        if (e.deltaY > 0 && currentSectionIndex < sections.length - 1) {
-            navigateToSection(currentSectionIndex + 1);
-        } else if (e.deltaY < 0 && currentSectionIndex > 0) {
-            navigateToSection(currentSectionIndex - 1);
-        }
-    }, { passive: false });
+    //     if (e.deltaY > 0 && currentSectionIndex < sections.length - 1) {
+    //         navigateToSection(currentSectionIndex + 1);
+    //     } else if (e.deltaY < 0 && currentSectionIndex > 0) {
+    //         navigateToSection(currentSectionIndex - 1);
+    //     }
+    // }, { passive: false });
 
-    let touchStartY = 0;
-    document.addEventListener('touchstart', (e) => {
-        touchStartY = e.changedTouches[0].screenY;
-    }, { passive: true });
+    // let touchStartY = 0;
+    // document.addEventListener('touchstart', (e) => {
+    //     touchStartY = e.changedTouches[0].screenY;
+    // }, { passive: true });
 
-    document.addEventListener('touchend', (e) => {
-        if (isScrolling) return;
-        const touchEndY = e.changedTouches[0].screenY;
-        const deltaY = touchStartY - touchEndY;
-        const minSwipeDistance = 50;
+    // document.addEventListener('touchend', (e) => {
+    //     if (isScrolling) return;
+    //     const touchEndY = e.changedTouches[0].screenY;
+    //     const deltaY = touchStartY - touchEndY;
+    //     const minSwipeDistance = 50;
 
-        currentSectionIndex = getCurrentSectionIndex();
+    //     currentSectionIndex = getCurrentSectionIndex();
 
-        if (Math.abs(deltaY) > minSwipeDistance) {
-            if (deltaY > 0 && currentSectionIndex < sections.length - 1) {
-                navigateToSection(currentSectionIndex + 1);
-            } else if (deltaY < 0 && currentSectionIndex > 0) {
-                navigateToSection(currentSectionIndex - 1);
-            }
-        }
-    }, { passive: true });
+    //     if (Math.abs(deltaY) > minSwipeDistance) {
+    //         if (deltaY > 0 && currentSectionIndex < sections.length - 1) {
+    //             navigateToSection(currentSectionIndex + 1);
+    //         } else if (deltaY < 0 && currentSectionIndex > 0) {
+    //             navigateToSection(currentSectionIndex - 1);
+    //         }
+    //     }
+    // }, { passive: true });
 
-    document.addEventListener('keydown', (e) => {
-        if (isScrolling) return;
+    // document.addEventListener('keydown', (e) => {
+    //     if (isScrolling) return;
 
-        currentSectionIndex = getCurrentSectionIndex();
+    //     currentSectionIndex = getCurrentSectionIndex();
 
-        if (e.key === 'ArrowDown' && currentSectionIndex < sections.length - 1) {
-            e.preventDefault();
-            navigateToSection(currentSectionIndex + 1);
-        } else if (e.key === 'ArrowUp' && currentSectionIndex > 0) {
-            e.preventDefault();
-            navigateToSection(currentSectionIndex - 1);
-        }
-    });
+    //     if (e.key === 'ArrowDown' && currentSectionIndex < sections.length - 1) {
+    //         e.preventDefault();
+    //         navigateToSection(currentSectionIndex + 1);
+    //     } else if (e.key === 'ArrowUp' && currentSectionIndex > 0) {
+    //         e.preventDefault();
+    //         navigateToSection(currentSectionIndex - 1);
+    //     }
+    // });
 
     setTimeout(() => {
         const initialIndex = getCurrentSectionIndex();
