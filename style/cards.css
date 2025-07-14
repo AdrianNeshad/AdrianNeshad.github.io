@@ -46,9 +46,29 @@
     padding: 0.25rem 0.5rem;
     border-radius: 999px;
     margin: 0;
-    /* Ta bort margin eftersom grid hanterar spacing */
     text-align: center;
     white-space: nowrap;
+}
+.badge3 {
+    display: inline-block;
+    background: #e3fee0;
+    color: #2ec20d;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 999px;
+    margin-right: 0rem;
+    margin-top: 0.5rem;
+}
+
+.badge4 {
+    display: inline-block;
+    background: #fee0e0;
+    color: #c70202;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 999px;
+    margin-right: 0rem;
+    margin-top: 0.5rem;
 }
 .card-header {
     display: flex;
