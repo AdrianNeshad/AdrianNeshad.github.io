@@ -20,6 +20,7 @@ footer button {
     padding: 0.5rem 1rem;
     transition: all 0.3s ease;
     background-color: transparent;
+    width: 250px;
 }
 
 footer button:hover {
@@ -37,6 +38,7 @@ footer button:hover {
     transition: all 0.3s ease;
     background-color: transparent;
     margin-top: 1rem;
+    width: 250px;
 }
 
 .cv-button:hover {
