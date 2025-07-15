@@ -135,9 +135,37 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener('scroll', () => {
         const currentScrollY = window.scrollY;
         const nav = document.querySelector('.nav');
-        if (window.innerWidth <= 768) {
-            nav.style.transform = currentScrollY > 50 ? 'translateY(-100%)' : 'translateY(0)';
-        }
+        let lastScrollY = window.scrollY;
+
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            const nav = document.querySelector('.nav');
+
+            if (window.innerWidth <= 768) {
+                if (currentScrollY > lastScrollY && currentScrollY > 50) {
+                    // Scrollar ner → göm navbar
+                    nav.style.transform = 'translateY(-100%)';
+                } else {
+                    // Scrollar upp → visa navbar
+                    nav.style.transform = 'translateY(0)';
+                }
+            }
+
+            lastScrollY = currentScrollY;
+
+            // Fortsätt med din sektion-indikatorlogik
+            if (!isScrolling) {
+                const currentIndex = getCurrentSectionIndex();
+                if (currentIndex !== currentSectionIndex) {
+                    currentSectionIndex = currentIndex;
+                    document.querySelectorAll(".nav-links a").forEach(link => {
+                        const scrollTarget = link.getAttribute("data-scroll");
+                        link.classList.toggle("active-section", scrollTarget === sections[currentIndex]);
+                    });
+                }
+            }
+        });
+
         if (!isScrolling) {
             const currentIndex = getCurrentSectionIndex();
             if (currentIndex !== currentSectionIndex) {
