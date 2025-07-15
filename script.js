@@ -185,13 +185,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>` : "";
 
             const linksHTML = `
-                ${project.github ? `<a href="${project.github}" target="_blank" class="badge3">GitHub</a>` : ""}
-                ${project.appstore ? `<a href="${project.appstore}" target="_blank" class="badge3">App Store</a>` : ""}`;
+                ${project.github ? `<a href="${project.github}" target="_blank" class="modal-icon-link">
+                    <img src="/assets/images/github.png" alt="GitHub" class="modal-icon" />
+                </a>` : ""}
+                ${project.appstore ? `<a href="${project.appstore}" target="_blank" class="modal-icon-link">
+                    <img src="/assets/images/appstore.webp" alt="App Store" class="modal-icon" />
+                </a>` : ""}`;
 
             modalBody.innerHTML = `
-                ${imgHTML}
                 <h2>${texts[lang][`project${id === 'unifeed' ? 1 : id === 'eloque' ? 2 : id === 'univert' ? 3 : 4}Title`]}</h2>
-                <p>${texts[lang][project.descKey]}</p>
+                ${imgHTML}
                 <div class="modal-links">${linksHTML}</div>
             `;
 
