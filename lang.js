@@ -95,6 +95,6 @@ export const texts = {
         protokoll: "Protocol:",
         arkitekturer: "Architectures:",
         utmärkelser: "Awards:",
-        localation: "Stockholm & Örebro, Sweden",
+        location: "Stockholm & Örebro, Sweden",
     }
 };
