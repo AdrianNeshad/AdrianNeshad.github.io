@@ -23,15 +23,18 @@
         height: 48px;
     }
 
+    .nav-logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
     .nav-logo a {
         text-align: center;
         font-size: 1.25rem;
         margin: 0;
         padding-left: 0;
-        position: center;
-        left: 50%;
-        transform: translateX(-50%);
-        padding-top: 10rem;
+        padding-top: 0;
     }
 
     .burger {
@@ -42,10 +45,42 @@
         color: #1f2937;
         cursor: pointer;
         position: absolute;
-        right: 0;
+        right: 1rem;
         top: 50%;
         transform: translateY(-50%);
         z-index: 1001;
+    }
+
+    .lang-toggle-wrapper.mobile-only {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        left: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1002;
+    }
+
+    .lang-toggle-wrapper.mobile-only .lang-button {
+        background: none;
+        border: none;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .lang-toggle-wrapper.mobile-only .lang-button span {
+        display: none;
+    }
+
+    .lang-toggle-wrapper.mobile-only .lang-button img {
+        width: 28px;
+        height: auto;
+    }
+
+    .lang-toggle-wrapper.desktop-only {
+        display: none;
     }
 
     .nav-links {
@@ -151,12 +186,10 @@
         width: 100% !important;
         max-width: 320px !important;
         text-align: center !important;
-        /* Completely reset all positioning */
         top: 0 !important;
         left: 0 !important;
         right: 0 !important;
         margin: 0 auto !important;
-        /* Ensure perfect centering */
         display: block !important;
         box-sizing: border-box !important;
         padding-left: 1.5rem !important;
@@ -182,19 +215,16 @@
         transform: scale(1.1);
     }
 
-    /* Justera andra sektioner för mobil */
     section {
         padding: 2rem 1rem;
         min-height: 100vh;
     }
 
-    /* Justera footer för mobil */
     footer {
         padding: 2rem 1rem;
         min-height: 100vh;
     }
 
-    /* Justera kort för mobil */
     .card-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
@@ -203,20 +233,23 @@
     .card {
         padding: 1rem;
     }
-        .badge2-container {
-            grid-template-columns: 1fr;
-            grid-template-rows: auto;
-        }
-        .badge2 {
-            max-width: 400px;
-        }
-                .footer-contact-container {
-                    flex-direction: column !important;
-                    align-items: center;
-                }
-        
-                .footer-box {
-                    width: 100%;
-                    max-width: 300px;
-                }
+
+    .badge2-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    .badge2 {
+        max-width: 400px;
+    }
+
+    .footer-contact-container {
+        flex-direction: column !important;
+        align-items: center;
+    }
+
+    .footer-box {
+        width: 100%;
+        max-width: 300px;
+    }
 }

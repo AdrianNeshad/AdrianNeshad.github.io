@@ -127,3 +127,9 @@
     width: 30px;
     height: auto;
 }
+
+@media (min-width: 1101px) {
+    .lang-toggle-wrapper.mobile-only {
+        display: none;
+    }
+}
