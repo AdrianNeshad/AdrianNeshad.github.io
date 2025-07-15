@@ -95,7 +95,7 @@
         <div class="card">
           <div class="card-header">
             <img src="/assets/images/unifeed.png" alt="Unifeed logo" class="card-icon" />
-            <h3 data-i18n="project1Title">Unifeed - Nyhetsflöde</h3>
+            <h3 data-i18n="project1Title" data-id="unifeed">Unifeed - Nyhetsflöde</h3>
           </div>
           <div class="badge2-container">
             <span class="badge2" data-i18n="project1Rating"></span>
@@ -118,7 +118,7 @@
         <div class="card">
           <div class="card-header">
             <img src="/assets/images/eloque.png" alt="Eloque AI" class="card-icon" />
-            <h3 data-i18n="project2Title">Eloque AI</h3>
+            <h3 data-i18n="project2Title" data-id="eloque">Eloque AI</h3>
           </div>
           <p data-i18n="project2Desc"></p>
           <p2>Tech Stack:</p2>
@@ -136,7 +136,7 @@
         <div class="card">
           <div class="card-header">
             <img src="/assets/images/univert.png" alt="Univert logo" class="card-icon" />
-            <h3 data-i18n="project3Title">Univert – Enhetsomvandlare</h3>
+            <h3 data-i18n="project3Title" data-id="univert">Univert – Enhetsomvandlare</h3>
           </div>
           <p data-i18n="project3Desc"></p>
           <p2>Tech Stack:</p2>
@@ -149,7 +149,7 @@
         <div class="card">
           <div class="card-header">
             <img src="/assets/images/swipeflix.png" alt="SwipeFlix logo" class="card-icon" />
-            <h3 data-i18n="project4Title">SwipeFlix</h3>
+            <h3 data-i18n="project4Title" data-id="swipeflix">SwipeFlix</h3>
           </div>
           <p data-i18n="project4Desc"></p>
           <p2>Tech Stack:</p2>
@@ -220,6 +220,15 @@
       </div>
       <p>&copy; 2025 Adrian Neshad</p>
     </footer>
+
+    <div id="project-modal" class="modal hidden">
+      <div class="modal-content">
+        <span class="close-button" id="modal-close">&times;</span>
+        <div id="modal-body">
+        </div>
+      </div>
+    </div>
+
 
     <script type="module" src="script.js"></script>
   </body>

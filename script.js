@@ -5,8 +5,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const burger = document.getElementById("burger");
     const navLinks = document.querySelector(".nav-links");
     const langBtn = document.getElementById("lang-btn");
+    const modal = document.getElementById("project-modal");
+    const modalBody = document.getElementById("modal-body");
+    const closeBtn = document.getElementById("modal-close");
 
     let lang = "sv";
+    let currentImageIndex = 0;
+    let images = [];
 
     const updateLanguage = () => {
         document.documentElement.lang = lang;
@@ -47,7 +52,6 @@ document.addEventListener("DOMContentLoaded", () => {
             const res = await fetch('https://ipapi.co/json/');
             const data = await res.json();
             const country = data.country || '';
-
             lang = country === 'SE' ? 'sv' : 'en';
         } catch (e) {
             const browserLang = navigator.language || navigator.userLanguage;
@@ -69,24 +73,15 @@ document.addEventListener("DOMContentLoaded", () => {
         if (index >= 0 && index < sections.length && index !== currentSectionIndex) {
             currentSectionIndex = index;
             isScrolling = true;
-
             document.documentElement.style.scrollSnapType = 'none';
             const target = document.getElementById(sections[index]);
             if (target) {
                 target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
-
             document.querySelectorAll(".nav-links a").forEach(link => {
                 const scrollTarget = link.getAttribute("data-scroll");
-                if (index === 0 || scrollTarget === "hero") {
-                    link.classList.remove("active-section");
-                } else if (scrollTarget === sections[index]) {
-                    link.classList.add("active-section");
-                } else {
-                    link.classList.remove("active-section");
-                }
+                link.classList.toggle("active-section", scrollTarget === sections[index]);
             });
-
             setTimeout(() => {
                 document.documentElement.style.scrollSnapType = 'y mandatory';
                 isScrolling = false;
@@ -125,40 +120,108 @@ document.addEventListener("DOMContentLoaded", () => {
         navigateToSection(initialIndex);
     }, 100);
 
-    detectAndSetLanguage();
-
-    let lastScrollY = window.scrollY;
-    const nav = document.querySelector('.nav');
-    const handleScroll = () => {
+    window.addEventListener('scroll', () => {
         const currentScrollY = window.scrollY;
-
+        const nav = document.querySelector('.nav');
         if (window.innerWidth <= 768) {
-            if (currentScrollY > lastScrollY && currentScrollY > 50) {
-                nav.style.transform = 'translateY(-100%)';
-            } else {
-                nav.style.transform = 'translateY(0)';
-            }
-        } else {
-            nav.style.transform = 'translateY(0)';
+            nav.style.transform = currentScrollY > 50 ? 'translateY(-100%)' : 'translateY(0)';
         }
-
-        lastScrollY = currentScrollY;
         if (!isScrolling) {
             const currentIndex = getCurrentSectionIndex();
             if (currentIndex !== currentSectionIndex) {
                 currentSectionIndex = currentIndex;
-
                 document.querySelectorAll(".nav-links a").forEach(link => {
                     const scrollTarget = link.getAttribute("data-scroll");
-                    if (scrollTarget === sections[currentIndex]) {
-                        link.classList.add("active-section");
-                    } else {
-                        link.classList.remove("active-section");
-                    }
+                    link.classList.toggle("active-section", scrollTarget === sections[currentIndex]);
                 });
             }
         }
+    });
+
+    const projectData = {
+        unifeed: {
+            images: ["/assets/images/unifeed1.png", "/assets/images/unifeed2.png", "/assets/images/unifeed3.png", "/assets/images/unifeed4.png", "/assets/images/unifeed5.png"],
+            github: null,
+            appstore: "https://apps.apple.com/us/app/unifeed-nyhetsfl%C3%B6de/id6746872036",
+            descKey: "project1Desc"
+        },
+        eloque: {
+            images: ["/assets/images/eloque1.png", "/assets/images/eloque2.png", "/assets/images/eloque3.png", "/assets/images/eloque4.png", "/assets/images/eloque5.png"],
+            github: "https://github.com/AdrianNeshad/Eloque-AI",
+            appstore: null,
+            descKey: "project2Desc"
+        },
+        univert: {
+            images: ["/assets/images/univert1.png", "/assets/images/univert2.png", "/assets/images/univert3.png", "/assets/images/univert4.png"],
+            github: "https://github.com/AdrianNeshad/Univert",
+            appstore: "https://apps.apple.com/us/app/univert-unit-converter/id6745692591",
+            descKey: "project3Desc"
+        },
+        swipeflix: {
+            images: ["/assets/images/swipeflix1.webp", "/assets/images/swipeflix2.webp", "/assets/images/swipeflix3.webp"],
+            github: "https://github.com/AdrianNeshad/SwipeFlix",
+            appstore: "https://apps.apple.com/us/app/flixswipe-explore-new-movies/id6746716902",
+            descKey: "project4Desc"
+        }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    document.querySelectorAll("#projects .card").forEach(card => {
+        card.style.cursor = "pointer";
+        card.addEventListener("click", () => {
+            const id = card.querySelector("h3")?.dataset.id;
+            const project = projectData[id];
+            if (!project) return;
+
+            images = project.images;
+            currentImageIndex = 0;
+
+            const imgHTML = images.length > 0 ? `
+                <div class="carousel">
+                  <img class="carousel-image" src="${images[0]}" alt="Projektbild" />
+                  <div class="carousel-controls">
+                    <button id="prev-img">&lt;</button>
+                    <button id="next-img">&gt;</button>
+                  </div>
+                </div>` : "";
+
+            const linksHTML = `
+                ${project.github ? `<a href="${project.github}" target="_blank" class="badge3">GitHub</a>` : ""}
+                ${project.appstore ? `<a href="${project.appstore}" target="_blank" class="badge3">App Store</a>` : ""}`;
+
+            modalBody.innerHTML = `
+                ${imgHTML}
+                <h2>${texts[lang][`project${id === 'unifeed' ? 1 : id === 'eloque' ? 2 : id === 'univert' ? 3 : 4}Title`]}</h2>
+                <p>${texts[lang][project.descKey]}</p>
+                <div class="modal-links">${linksHTML}</div>
+            `;
+
+            modal.classList.remove("hidden");
+
+            setTimeout(() => {
+                const imgEl = modal.querySelector(".carousel-image");
+                const prevBtn = modal.querySelector("#prev-img");
+                const nextBtn = modal.querySelector("#next-img");
+
+                if (prevBtn) prevBtn.onclick = () => {
+                    currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+                    imgEl.src = images[currentImageIndex];
+                };
+
+                if (nextBtn) nextBtn.onclick = () => {
+                    currentImageIndex = (currentImageIndex + 1) % images.length;
+                    imgEl.src = images[currentImageIndex];
+                };
+            }, 0);
+        });
+    });
+
+    closeBtn.addEventListener("click", () => modal.classList.add("hidden"));
+
+    modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+            modal.classList.add("hidden");
+        }
+    });
+
+    detectAndSetLanguage();
 });
