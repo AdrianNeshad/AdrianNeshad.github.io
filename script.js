@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const burger = document.getElementById("burger");
     const navLinks = document.querySelector(".nav-links");
     const langBtn = document.getElementById("lang-btn");
+    const langBtnMobile = document.getElementById("lang-btn-mobile");
     const modal = document.getElementById("project-modal");
     const modalBody = document.getElementById("modal-body");
     const closeBtn = document.getElementById("modal-close");
@@ -23,22 +24,33 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
-        langBtn.querySelector("img").src = lang === "sv"
+        const flagSrc = lang === "sv"
             ? "/assets/images/flag-us.png"
             : "/assets/images/flag-se.png";
 
-        langBtn.querySelector("span").textContent = lang === "sv"
-            ? "English"
-            : "Svenska";
+        const flagText = lang === "sv" ? "English" : "Svenska";
+
+        if (langBtn) {
+            langBtn.querySelector("img").src = flagSrc;
+            langBtn.querySelector("span").textContent = flagText;
+        }
+
+        if (langBtnMobile) {
+            langBtnMobile.querySelector("img").src = flagSrc;
+        }
 
         localStorage.setItem("lang", lang);
         document.documentElement.style.visibility = 'visible';
     };
 
-    langBtn.addEventListener("click", () => {
+    const toggleLanguage = () => {
         lang = lang === "sv" ? "en" : "sv";
         updateLanguage();
-    });
+    };
+
+    langBtn?.addEventListener("click", toggleLanguage);
+    langBtnMobile?.addEventListener("click", toggleLanguage);
+
 
     const detectAndSetLanguage = async () => {
         const storedLang = localStorage.getItem("lang");
