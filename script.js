@@ -39,10 +39,20 @@ document.addEventListener("DOMContentLoaded", () => {
             langBtnMobile.querySelector("img").src = flagSrc;
         }
 
+        updatePdfLinks();
+
         localStorage.setItem("lang", lang);
         document.documentElement.style.visibility = 'visible';
     };
 
+    const updatePdfLinks = () => {
+        const pdfPath = lang === "sv" ? "assets/CV_A.N.pdf" : "assets/Curriculum_Vitae_A.N.pdf";
+
+        document.querySelectorAll('a[href*="CV_A.N.pdf"], a[href*="Curriculum_Vitae_A.N.pdf"]').forEach(link => {
+            link.href = pdfPath;
+        });
+    };
+    
     const toggleLanguage = () => {
         lang = lang === "sv" ? "en" : "sv";
         updateLanguage();
