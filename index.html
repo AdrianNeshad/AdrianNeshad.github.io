@@ -2,6 +2,15 @@
 <html lang="sv">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      const hostname = window.location.hostname;
+      const mainDomain = 'neshad.se';
+
+      if (hostname !== mainDomain && hostname.endsWith('.' + mainDomain)) {
+        const newUrl = 'https://' + mainDomain + window.location.pathname + window.location.search + window.location.hash;
+        window.location.replace(newUrl);
+      }
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Adrian Neshad</title>
     <link rel="stylesheet" href="style/base.css" />
