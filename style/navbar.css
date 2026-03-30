@@ -8,7 +8,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #ffffff11;
+    background: #00000011;
     backdrop-filter: blur(5px);
     padding: 1.5rem 2rem;
     flex-wrap: wrap;
@@ -67,7 +67,7 @@
     font-size: 1.5rem;
     background: none;
     border: none;
-    color: #1f2937;
+    color: #000000;
     cursor: pointer;
     margin-left: auto;
     z-index: 1001;
@@ -119,7 +119,7 @@
     cursor: pointer;
     font-weight: 500;
     font-size: 1rem;
-    color: #1f2937;
+    color: #000000;
     padding: 0.25rem 0.5rem;
 }
 
@@ -254,7 +254,7 @@
  .nav-links a:hover,
  .nav-links a.active-section {
 
-     color: #0051ff;
+     color: #000000;
 
      background: rgba(255, 255, 255, 0.55);
 
