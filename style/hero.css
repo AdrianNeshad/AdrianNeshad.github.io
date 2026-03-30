@@ -58,7 +58,7 @@
 }
 
 .techstack-card:hover {
-    transform: translateY(-4px);
+    transform: scale(1.05);
 }
 
 .techstack-card h3 {
