@@ -14,6 +14,9 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentImageIndex = 0;
     let images = [];
 
+    let date = new Date().getFullYear();
+    document.getElementById("currentYear").textContent = date;
+
     const updateLanguage = () => {
         document.documentElement.lang = lang;
 
