@@ -4,7 +4,7 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: rgb(220, 220, 220);
+    background: rgb(240, 240, 240);
     border-top: 1px solid #e5e7eb;
     text-align: center;
     padding: 3rem 1rem;
