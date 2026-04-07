@@ -18,6 +18,12 @@ body {
     overflow-x: hidden;
 }
 
+@media (max-width:1100px) {
+    body {
+        background: rgb(220, 220, 220);
+    }
+}
+
 section {
     scroll-snap-align: start;
     min-height: 100vh;
