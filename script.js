@@ -87,6 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     burger.addEventListener("click", () => {
+        burger.classList.toggle("active");
         navLinks.classList.toggle("active");
     });
 
@@ -145,39 +146,23 @@ document.addEventListener("DOMContentLoaded", () => {
         navigateToSection(initialIndex);
     }, 100);
 
+    let lastScrollY = window.scrollY;
+
     window.addEventListener('scroll', () => {
         const currentScrollY = window.scrollY;
         const nav = document.querySelector('.nav');
-        let lastScrollY = window.scrollY;
 
-        window.addEventListener('scroll', () => {
-            const currentScrollY = window.scrollY;
-            const nav = document.querySelector('.nav');
-
-            if (window.innerWidth <= 768) {
-                if (currentScrollY > lastScrollY && currentScrollY > 50) {
-                    // Scrollar ner → göm navbar
-                    nav.style.transform = 'translateY(-100%)';
-                } else {
-                    // Scrollar upp → visa navbar
-                    nav.style.transform = 'translateY(0)';
-                }
+        if (window.innerWidth <= 1100) {
+            if (currentScrollY > lastScrollY && currentScrollY > 50) {
+                nav.style.transform = 'translateY(-100%)';
+                burger.classList.remove('active');
+                navLinks.classList.remove('active');
+            } else {
+                nav.style.transform = 'translateY(0)';
             }
+        }
 
-            lastScrollY = currentScrollY;
-
-            // Fortsätt med din sektion-indikatorlogik
-            if (!isScrolling) {
-                const currentIndex = getCurrentSectionIndex();
-                if (currentIndex !== currentSectionIndex) {
-                    currentSectionIndex = currentIndex;
-                    document.querySelectorAll(".nav-links a").forEach(link => {
-                        const scrollTarget = link.getAttribute("data-scroll");
-                        link.classList.toggle("active-section", scrollTarget === sections[currentIndex]);
-                    });
-                }
-            }
-        });
+        lastScrollY = currentScrollY;
 
         if (!isScrolling) {
             const currentIndex = getCurrentSectionIndex();
