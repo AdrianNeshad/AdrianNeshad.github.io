@@ -13,8 +13,10 @@
     transition: transform 0.3s ease;
 }
 
+@media (min-width:1100px) {
 .card:hover {
     transform: scale(1.05);
+}
 }
 
 .badge {
