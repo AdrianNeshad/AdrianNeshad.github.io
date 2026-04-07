@@ -16,19 +16,28 @@
         height: 52px;
     }
 
-    .nav-logo {
-        justify-self: center;
-        margin: auto;
-    }
+        .nav-logo {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    
+        .nav-logo a {
+            text-align: center;
+            font-size: 1.25rem;
+            margin: 0;
+            padding-left: 0;
+            padding-top: 0;
+        }
 
     .burger{
-    display:flex;
+    display:block;
     flex-direction:column;
     justify-content:center;
     align-items:center;
     width:32px;
     height:32px;
-    position:relative;
+    position:absolute;
     background:none;
     border:none;
     cursor:pointer;
