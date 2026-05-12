@@ -48,6 +48,8 @@ document.addEventListener("DOMContentLoaded", () => {
         document.documentElement.style.visibility = 'visible';
     };
 
+    // Engelska CV om engelska språk är valt
+    /*
     const updatePdfLinks = () => {
         const pdfPath = lang === "sv" ? "assets/CV_A.N.pdf" : "assets/Curriculum_Vitae_A.N.pdf";
 
@@ -55,6 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
             link.href = pdfPath;
         });
     };
+    */
     
     const toggleLanguage = () => {
         lang = lang === "sv" ? "en" : "sv";
